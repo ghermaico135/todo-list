@@ -55,8 +55,9 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-#textInput {
-  width: 100%;
+#textInput,
+#text-value {
+  width: 98%;
   margin: 4px 0;
   padding: 8px 6px;
   font-size: 22px;
@@ -98,7 +99,7 @@ body {
 }
 
 #textInput:focus {
-  /* outline: none; */
+  outline: none;
 }
 
 #clearBtn {

@@ -11,6 +11,7 @@ import clear from './asset/js/clear.js';
 const addBtn = document.querySelector('#addBtn');
 const input = document.querySelector('#textInput');
 const clearBtn = document.querySelector('#clearBtn');
+const refreshBtn = document.querySelector('.refreshBtn')
 
 window.addEventListener('load', () => {
   showList(todoTask);
@@ -52,4 +53,8 @@ clearBtn.addEventListener('click', (e) => {
   clear(todoTask);
   removeHandler(e.target.id);
 });
+
+refreshBtn.addEventListener('click', () =>{
+  showList(todoTask)
+})
 export default input;

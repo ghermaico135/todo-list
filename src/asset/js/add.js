@@ -1,7 +1,4 @@
-/** @format */
-/* eslint-disable */
-import input from '../../index.js';
-/* eslint-disable */
+const input = document.querySelector('#textInput');
 let todoTask = JSON.parse(localStorage.getItem('todoTask')) || [];
 
 const addList = (todoTask) => {
@@ -20,4 +17,6 @@ const removeHandler = (index) => {
   localStorage.setItem('todoTask', JSON.stringify(todoTask));
 };
 
-export { todoTask, addList, removeHandler };
+export {
+  input, todoTask, addList, removeHandler,
+};

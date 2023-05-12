@@ -1,7 +1,7 @@
 /** @format */
 /* eslint-disable */
 import './style.css';
-import { addList, todoTask, removeHandler } from './asset/js/add.js';
+import { input,addList, todoTask, removeHandler } from './asset/js/add.js';
 import { showList } from './asset/js/showList.js';
 import checkList from './asset/js/checklist.js';
 import clear from './asset/js/clear.js';
@@ -9,7 +9,7 @@ import clear from './asset/js/clear.js';
 /* eslint-disable */
 
 const addBtn = document.querySelector('#addBtn');
-const input = document.querySelector('#textInput');
+
 const clearBtn = document.querySelector('#clearBtn');
 const refreshBtn = document.querySelector('.refreshBtn')
 

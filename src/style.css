@@ -63,8 +63,6 @@ body {
   border: none;
 }
 
-
-
 #addBtn {
   width: 15px;
   height: 15px;
@@ -83,7 +81,7 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-.task-list{
+.task-list {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -91,17 +89,17 @@ body {
 
 .checkBtn {
   margin-right: 10px;
+
   /* padding: 4px; */
 }
 
-.description1{
-  text-decoration: none;
+.text-description {
+  text-decoration: line-through;
 }
 
-#textInput:focus{
+#textInput:focus {
   /* outline: none; */
 }
-
 
 #clearBtn {
   padding: 8px;
@@ -113,10 +111,9 @@ body {
   cursor: pointer;
 }
 
-.trashBtn,.editBtn{
+.trashBtn,
+.editBtn {
   width: 20px;
   height: 20px;
   margin: 16px 0;
-  
 }
-

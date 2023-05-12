@@ -99,7 +99,7 @@ body {
 }
 
 #textInput:focus {
-  /* outline: none; */
+  outline: none;
 }
 
 #clearBtn {

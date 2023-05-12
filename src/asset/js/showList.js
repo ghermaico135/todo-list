@@ -15,7 +15,7 @@ const showList = (todoTask) => {
 	<input type="text" id="${todo.index}" class="description text-value"  value="${todo.description}" />
 	</div>
 	<div> 
-	<img  class="editBtn" src="https://img.icons8.com/dusk/64/edit--v1.png" alt="edit--v1" id="${todo.index}"/>	
+	
 	<img class="trashBtn" src="https://img.icons8.com/plasticine/100/trash--v1.png" alt="trash--v1" id="${todo.index}"/>
 	</div>
 	</div>

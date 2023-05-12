@@ -8,7 +8,7 @@ import { showList } from './asset/js/showList.js';
 
 const addBtn = document.querySelector('#addBtn');
 const input = document.querySelector('#textInput');
-// const clearBtn = document.querySelector("#clearBtn");
+
 
 window.addEventListener('load', () => {
   showList(todoTask);

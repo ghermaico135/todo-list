@@ -7,7 +7,7 @@ const clear = (todoTask) => {
   todoTask.forEach((todo) => {
     newTask.push(todo);
   });
-console.log(newTask)
+  console.log(newTask);
   localStorage.setItem('todoTask', JSON.stringify(newTask));
 
   showList(newTask);

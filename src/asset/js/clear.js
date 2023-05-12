@@ -5,9 +5,16 @@ import { showList } from './showList';
 
 const clear = (todoTask) => {
   todoTask = todoTask.filter((todo) => todo.completed !== true);
-  localStorage.setItem('todoTask', JSON.stringify(todoTask));
-  console.log(todoTask);
-  showList(todoTask);
+  //set new todo task to localstorage
+  let newTask = []
+  todoTask.forEach((todo) =>{
+    newTask.push(todo)
+  })
+ 
+  console.log(newTask)
+  localStorage.setItem('todoTask', JSON.stringify(newTask));
+  console.log(newTask);
+  showList(newTask);
 };
 
 export default clear;

@@ -1,7 +1,8 @@
 /** @format */
-
-import { todoTask } from './add.js';
-
+/* eslint-disable */
+import setItem from './storage.js';
+import todoTask from '../../index.js';
+/* eslint-disable */
 const todoListContainer = document.querySelector('#todo-list-container');
 
 const showList = (todoTask) => {
@@ -21,7 +22,8 @@ const showList = (todoTask) => {
 
     `;
   });
-  localStorage.setItem('todoTask', JSON.stringify(todoTask));
+
+  setItem(todoTask);
 
   todoListContainer.innerHTML = content;
 };

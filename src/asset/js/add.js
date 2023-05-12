@@ -1,7 +1,7 @@
 /** @format */
-const input = document.querySelector('#textInput');
-let todoTask = JSON.parse(localStorage.getItem('todoTask')) || [];
+import setItem from './storage.js';
 
+const input = document.querySelector('#textInput');
 const addList = (todoTask) => {
   todoTask.push({
     index: todoTask.length + 1,
@@ -9,15 +9,9 @@ const addList = (todoTask) => {
     completed: false,
   });
 
-  localStorage.setItem('todoTask', JSON.stringify(todoTask));
-};
-
-const removeHandler = (index) => {
-  todoTask = todoTask.filter((todo) => Number(todo.index) !== Number(index));
-
-  localStorage.setItem('todoTask', JSON.stringify(todoTask));
+  setItem(todoTask);
 };
 
 export {
-  todoTask, addList, removeHandler, input,
+  addList, input,
 };

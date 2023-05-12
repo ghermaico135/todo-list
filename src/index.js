@@ -29,18 +29,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-document.addEventListener('change', () => {
-  const paragraph = document.querySelectorAll('.description');
-  paragraph.forEach((p) => {
-    p.addEventListener('keyup', (e) => {
-      todoTask.forEach(() => {
-        const newValue = e.target.input.value;
-        console.log(input.value);
-        todoTask.description = newValue;
-        localStorage.setItem('todoTask', JSON.stringify(todoTask));
-      });
-    });
-  });
-});
+
 
 export default input;

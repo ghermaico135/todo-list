@@ -1,14 +1,12 @@
 /** @format */
 
 import './style.css';
-/* eslint-disable */
-import { addList, todoTask, removeHandler } from './asset/js/add.js';
+import {
+  addList, todoTask, removeHandler, input,
+} from './asset/js/add.js';
 import { showList } from './asset/js/showList.js';
-/* eslint-disable */
 
 const addBtn = document.querySelector('#addBtn');
-const input = document.querySelector('#textInput');
-
 
 window.addEventListener('load', () => {
   showList(todoTask);
@@ -23,30 +21,34 @@ addBtn.addEventListener('click', (e) => {
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('trashBtn')) {
-    console.log(e.target);
     removeHandler(e.target.id);
+    // const tasks = JSON.parse(localStorage.getItem('todoTask'));
+    // console.log(tasks);
+    // let newTasks = []
+    // tasks.map((index) =>{
+    //   tasks.index = index
+    //   newTasks.push(tasks)
+    // })
+    // console.log(newTasks)
+    // localStorage.setItem('todoTask',JSON.stringify(newTasks))
+
     showList(todoTask);
   }
 });
 
-document.addEventListener('click', (e) =>{
-  if(e.target.classList.contains('description')){
-      e.target.addEventListener('change', () =>{
-        // console.log(e.target.value)
-        let tasks = JSON.parse(localStorage.getItem('todoTask')) 
-        let newTasks = []
-       tasks.forEach((task)=>{
-        console.log(e.target.id)
-            if(e.target.id == task.index){
-              task.description = e.target.value
-            }
-            newTasks.push(task)  
-        })
-        localStorage.setItem('todoTask',JSON.stringify(newTasks))
-        showList(newTasks)
-      })
-   
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('description')) {
+    e.target.addEventListener('change', () => {
+      const tasks = JSON.parse(localStorage.getItem('todoTask'));
+      const newTasks = [];
+      tasks.forEach((task) => {
+        if (Number(e.target.id) === Number(task.index)) {
+          task.description = e.target.value;
+        }
+        newTasks.push(task);
+      });
+      localStorage.setItem('todoTask', JSON.stringify(newTasks));
+      showList(newTasks);
+    });
   }
-  })
-
-export default input;
+});

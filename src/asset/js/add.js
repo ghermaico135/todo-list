@@ -1,12 +1,10 @@
 /** @format */
-/* eslint-disable */
-import input from '../../index.js';
-/* eslint-disable */
+const input = document.querySelector('#textInput');
 let todoTask = JSON.parse(localStorage.getItem('todoTask')) || [];
 
 const addList = (todoTask) => {
   todoTask.push({
-    index: todoTask.length,
+    index: todoTask.length + 1,
     description: input.value,
     completed: false,
   });
@@ -20,4 +18,6 @@ const removeHandler = (index) => {
   localStorage.setItem('todoTask', JSON.stringify(todoTask));
 };
 
-export { todoTask, addList, removeHandler };
+export {
+  todoTask, addList, removeHandler, input,
+};

@@ -35,6 +35,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "circular-dependency-plugin": "^5.2.2",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"

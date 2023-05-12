@@ -6,7 +6,8 @@ const todoListContainer = document.querySelector('#todo-list-container');
 
 const showList = (todoTask) => {
   let content = '';
-  todoTask.forEach((todo) => {
+  todoTask.forEach((todo, index) => {
+    todo.index = index + 1;
     content += `
 <div class="todo-list"  id="${todo.index}">
 <div class="task-list">
@@ -20,6 +21,7 @@ const showList = (todoTask) => {
 
     `;
   });
+  localStorage.setItem('todoTask', JSON.stringify(todoTask));
 
   todoListContainer.innerHTML = content;
 };

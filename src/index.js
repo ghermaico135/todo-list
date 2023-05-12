@@ -22,15 +22,6 @@ addBtn.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('trashBtn')) {
     removeHandler(e.target.id);
-    // const tasks = JSON.parse(localStorage.getItem('todoTask'));
-    // console.log(tasks);
-    // let newTasks = []
-    // tasks.map((index) =>{
-    //   tasks.index = index
-    //   newTasks.push(tasks)
-    // })
-    // console.log(newTasks)
-    // localStorage.setItem('todoTask',JSON.stringify(newTasks))
 
     showList(todoTask);
   }

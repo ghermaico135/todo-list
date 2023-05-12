@@ -116,7 +116,8 @@ You can deploy this project using [Netlify](https://www.netlify.com/) or [Github
 
 > Describe 1 - 3 features you will add to the project.
 
-- **Adding and removing form list dynamically**
+- **Adding removing and edit form list dynamically**
+- ** Adding interactive page **
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -1,7 +1,9 @@
 /** @format */
+/* eslint-disable */
 import input from "../../index.js";
+/* eslint-disable */
 
-let todoTask = JSON.parse(localStorage.getItem("todoTask")) || [];
+const todoTask = JSON.parse(localStorage.getItem("todoTask")) || [];
 
 const addList = (todoTask) => {
 	todoTask.push({

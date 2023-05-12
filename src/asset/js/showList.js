@@ -12,7 +12,7 @@ const showList = (todoTask) => {
 	<div class="todo-list"  id="${todo.index}">
 	<div class="task-list">
 	<input type="checkbox"  class="checkBtn" ${todo.completed ? 'checked' : null} id="${todo.index}"/>
-	<input type="text" id="textInput" class="description" contenteditable="true" value="${todo.description}" />
+	<input type="text" id="${todo.index}" class="description text-value"  value="${todo.description}" />
 	</div>
 	<div> 
 	<img  class="editBtn" src="https://img.icons8.com/dusk/64/edit--v1.png" alt="edit--v1" id="${todo.index}"/>	

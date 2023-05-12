@@ -29,6 +29,24 @@ document.addEventListener('click', (e) => {
   }
 });
 
-
+document.addEventListener('click', (e) =>{
+  if(e.target.classList.contains('description')){
+      e.target.addEventListener('change', () =>{
+        // console.log(e.target.value)
+        let tasks = JSON.parse(localStorage.getItem('todoTask')) 
+        let newTasks = []
+       tasks.forEach((task)=>{
+        console.log(e.target.id)
+            if(e.target.id == task.index){
+              task.description = e.target.value
+            }
+            newTasks.push(task)  
+        })
+        localStorage.setItem('todoTask',JSON.stringify(newTasks))
+        showList(newTasks)
+      })
+   
+  }
+  })
 
 export default input;

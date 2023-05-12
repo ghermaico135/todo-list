@@ -55,7 +55,8 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-#textInput {
+#textInput,
+.text-value {
   width: 98%;
   margin: 4px 0;
   padding: 8px 6px;

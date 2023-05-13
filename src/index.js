@@ -1,51 +1,51 @@
 /** @format */
 
-/** @format */
-
-// import _ from 'lodash';
 import './style.css';
+import {
+  todoTask, setItem, input, addList, removeHandler, showList,
+} from './asset/js/utility.js';
 
-const todoListContainer = document.querySelector('#todo-list-container');
-class Todo {
-  constructor() {
-    this.userTodo = [
-      { idex: 0, description: 'Double-tab to edit', completed: false },
-      {
-        idex: 1,
-        description: "Drag'n drop to reorder your list",
-        completed: false,
-      },
-      {
-        index: 2,
-        description: 'Manage all your lists in one place',
-        completed: false,
-      },
-      {
-        idex: 3,
-        description: 'Resync to clear out the old',
-        completed: false,
-      },
-    ];
-  }
+const addBtn = document.querySelector('#addBtn');
 
-  showList() {
-    let content = '';
+// add
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
 
-    this.userTodo.forEach((todo) => {
-      content += `
-      <div class="todo-list">
-      <input type="checkbox" id="checkBtn" check=${todo.completed}/>
-      <p>${todo.description}</p>
-    </div>
-  
-      `;
-    });
-    todoListContainer.innerHTML = content;
-  }
-}
+  addList(todoTask);
+  showList(todoTask);
+  input.value = '';
+});
 
-const userTodo = new Todo();
-
+// showAll element at loading
 window.addEventListener('load', () => {
-  userTodo.showList();
+  const tasks = todoTask;
+  showList(tasks);
+});
+
+// remove eventListner
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('trashBtn')) {
+    removeHandler(e.target.id);
+    showList(todoTask);
+  }
+});
+
+// edit
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('description')) {
+    e.target.addEventListener('change', () => {
+      // const tasks = JSON.parse(localStorage.getItem('todoTask'));
+      // todoTask
+      const newTasks = [];
+      todoTask.forEach((task) => {
+        if (Number(e.target.id) === Number(task.index)) {
+          task.description = e.target.value;
+        }
+        newTasks.push(task);
+      });
+
+      setItem(newTasks);
+      showList(newTasks);
+    });
+  }
 });

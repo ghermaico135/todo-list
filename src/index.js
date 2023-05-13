@@ -1,22 +1,11 @@
 /** @format */
 
 import './style.css';
-import setItem from './asset/js/storage.js';
 import {
-  addList, input,
-} from './asset/js/add.js';
-/* eslint-disable */
-import { showList } from './asset/js/showList.js';
+  todoTask, setItem, input, addList, removeHandler, showList,
+} from './asset/js/utility.js';
 
-let todoTask = JSON.parse(localStorage.getItem('todoTask')) || [];
-export default todoTask;
-/* eslint-disable */
 const addBtn = document.querySelector('#addBtn');
-
-window.addEventListener('load', () => {
-  const tasks = todoTask;
-  showList(tasks);
-});
 
 // add
 addBtn.addEventListener('click', (e) => {
@@ -27,11 +16,12 @@ addBtn.addEventListener('click', (e) => {
   input.value = '';
 });
 
-// remove function
-const removeHandler = (index) => {
-  todoTask = todoTask.filter((todo) => Number(todo.index) !== Number(index));
-  setItem(todoTask);
-};
+// showAll element at loading
+window.addEventListener('load', () => {
+  const tasks = todoTask;
+  showList(tasks);
+});
+
 // remove eventListner
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('trashBtn')) {
@@ -44,10 +34,10 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('description')) {
     e.target.addEventListener('change', () => {
-      const tasks = JSON.parse(localStorage.getItem('todoTask'));
+      // const tasks = JSON.parse(localStorage.getItem('todoTask'));
       // todoTask
       const newTasks = [];
-      tasks.forEach((task) => {
+      todoTask.forEach((task) => {
         if (Number(e.target.id) === Number(task.index)) {
           task.description = e.target.value;
         }
@@ -59,4 +49,3 @@ document.addEventListener('click', (e) => {
     });
   }
 });
-

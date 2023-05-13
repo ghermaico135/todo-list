@@ -3,6 +3,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CircularDependencyPlugin = require("circular-dependency-plugin");
+const webpack = require("webpack");
 
 module.exports = {
 	mode: "development",
@@ -13,6 +14,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "./src/index.html",
 		}),
+
 		new CircularDependencyPlugin({
 			// `onStart` is called at the beginning of the build process
 			onStart({ compilation }) {
@@ -43,6 +45,7 @@ module.exports = {
 				test: /\.css$/i,
 				use: ["style-loader", "css-loader"],
 			},
+			{ test: /\.txt$/, use: "raw-loader" },
 		],
 	},
 };

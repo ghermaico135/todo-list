@@ -55,16 +55,13 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
-#textInput {
-  width: 100%;
+#textInput,
+#text-value {
+  width: 98%;
   margin: 4px 0;
   padding: 8px 6px;
   font-size: 22px;
   border: none;
-}
-
-#textInput:focus {
-  outline: none;
 }
 
 #addBtn {
@@ -79,14 +76,30 @@ body {
 
 .todo-list {
   display: flex;
+  justify-content: space-between;
   padding: 6px;
   margin: 2px 0;
   border-bottom: 1px solid #ccc;
 }
 
-#checkBtn {
+.task-list {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.checkBtn {
   margin-right: 10px;
-  padding: 4px;
+
+  /* padding: 4px; */
+}
+
+.text-description {
+  text-decoration: line-through;
+}
+
+#textInput:focus {
+  outline: none;
 }
 
 #clearBtn {
@@ -97,4 +110,11 @@ body {
   border: none;
   color: var(--lightGrey);
   cursor: pointer;
+}
+
+.trashBtn,
+.editBtn {
+  width: 20px;
+  height: 20px;
+  margin: 16px 0;
 }

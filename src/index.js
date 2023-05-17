@@ -1,51 +1,60 @@
 /** @format */
-
-/** @format */
-
-// import _ from 'lodash';
+/* eslint-disable */
 import './style.css';
+import { input,addList, todoTask, removeHandler } from './asset/js/add.js';
+import { showList } from './asset/js/showList.js';
+import checkList from './asset/js/checklist.js';
+import clear from './asset/js/clear.js';
 
-const todoListContainer = document.querySelector('#todo-list-container');
-class Todo {
-  constructor() {
-    this.userTodo = [
-      { idex: 0, description: 'Double-tab to edit', completed: false },
-      {
-        idex: 1,
-        description: "Drag'n drop to reorder your list",
-        completed: false,
-      },
-      {
-        index: 2,
-        description: 'Manage all your lists in one place',
-        completed: false,
-      },
-      {
-        idex: 3,
-        description: 'Resync to clear out the old',
-        completed: false,
-      },
-    ];
-  }
+/* eslint-disable */
 
-  showList() {
-    let content = '';
+const addBtn = document.querySelector('#addBtn');
 
-    this.userTodo.forEach((todo) => {
-      content += `
-      <div class="todo-list">
-      <input type="checkbox" id="checkBtn" check=${todo.completed}/>
-      <p>${todo.description}</p>
-    </div>
-  
-      `;
-    });
-    todoListContainer.innerHTML = content;
-  }
-}
-
-const userTodo = new Todo();
+const clearBtn = document.querySelector('#clearBtn');
+const refreshBtn = document.querySelector('.refreshBtn')
 
 window.addEventListener('load', () => {
-  userTodo.showList();
+  showList(todoTask);
 });
+
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  addList(todoTask);
+  showList(todoTask);
+  input.value = '';
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('trashBtn')) {
+    removeHandler(e.target.id);
+    showList(todoTask);
+  }
+});
+
+// document.addEventListener('change', () => {
+//   const paragraph = document.querySelectorAll('.description');
+//   paragraph.forEach((p) => {
+//     p.addEventListener('keyup', (e) => {
+//       todoTask.forEach(() => {
+//         const newValue = e.target.input.value;
+//         console.log(input.value);
+//         todoTask.description = newValue;
+//         localStorage.setItem('todoTask', JSON.stringify(todoTask));
+//       });
+//     });
+//   });
+// });
+
+document.addEventListener('click', (e) => {
+  checkList(e);
+});
+
+clearBtn.addEventListener('click', (e) => {
+  clear(todoTask);
+  removeHandler(e.target.id);
+});
+
+refreshBtn.addEventListener('click', () =>{
+  showList(todoTask)
+})
+export default input;
